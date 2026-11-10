@@ -3,9 +3,7 @@
 const player = document.querySelector('#player');
 const grid = document.querySelector('#case-grid');
 const title = document.querySelector('#video-title');
-const kicker = document.querySelector('#video-kicker');
 const duration = document.querySelector('#video-duration');
-const description = document.querySelector('#video-description');
 const download = document.querySelector('#download-video');
 const statusLine = document.querySelector('#copy-status');
 const copyButton = document.querySelector('#copy-link');
@@ -26,13 +24,9 @@ function selectVideo(id, {scroll = false, updateHash = false} = {}) {
     player.load();
   }
   activeId = id;
-  title.textContent = selected ? `${caseLabel(selected)} — ${selected.scene}` : 'All six cases';
-  kicker.textContent = selected ? 'Individual scenario · Density 0.3' : 'Complete collection';
+  title.textContent = selected ? `${caseLabel(selected)} — ${selected.scene}` : 'Supplementary Video 1';
   duration.textContent = formatTime(next.duration_s);
   player.setAttribute('aria-label', `Four-method comparison video: ${title.textContent}`);
-  description.textContent = selected
-    ? `Matching initial road and traffic. Ours reaches the goal; SAC, SAC-Lag and CPO terminate in ${selected.number === 6 ? 'road departure or collision' : 'collisions'}. Panels hold their actual terminal frames. Playback: 5×.`
-    : 'Each case begins with its scene name and number. Baselines stop at their recorded collision or road departure; Ours continues to arrival.';
   download.href = next.video;
   document.querySelectorAll('[data-video]').forEach(link => {
     if (link.dataset.video === id) link.setAttribute('aria-current', 'true');
@@ -72,16 +66,11 @@ function buildCards() {
     const number = document.createElement('span');
     number.textContent = caseLabel(c).toUpperCase();
     const time = document.createElement('span');
-    time.textContent = `${formatTime(c.duration_s)} · 5×`;
+    time.textContent = formatTime(c.duration_s);
     line.append(number, time);
     const heading = document.createElement('h3');
     heading.textContent = c.scene;
-    const result = document.createElement('p');
-    result.className = 'card-result';
-    const success = document.createElement('strong');
-    success.textContent = 'Ours: safe arrival';
-    result.append(success, document.createTextNode(' · Baselines: failure'));
-    copy.append(line, heading, result);
+    copy.append(line, heading);
     link.append(thumb, copy);
     fragment.append(link);
   }
