@@ -7,6 +7,7 @@ const duration = document.querySelector('#video-duration');
 const download = document.querySelector('#download-video');
 const statusLine = document.querySelector('#copy-status');
 const copyButton = document.querySelector('#copy-link');
+const mediaURL = path => `${path}?v=3`;
 let cases = [];
 let activeId = 'overview';
 
@@ -19,7 +20,7 @@ function selectVideo(id, {scroll = false, updateHash = false} = {}) {
   const next = selected || {id: 'overview', video: 'media/overview.mp4', poster: 'media/overview.webp', duration_s: 155.12};
   if (activeId !== id) {
     player.pause();
-    player.src = next.video;
+    player.src = mediaURL(next.video);
     player.poster = next.poster;
     player.load();
   }
@@ -27,7 +28,7 @@ function selectVideo(id, {scroll = false, updateHash = false} = {}) {
   title.textContent = selected ? `${caseLabel(selected)} — ${selected.scene}` : 'Supplementary Video 1';
   duration.textContent = formatTime(next.duration_s);
   player.setAttribute('aria-label', `Four-method comparison video: ${title.textContent}`);
-  download.href = next.video;
+  download.href = mediaURL(next.video);
   document.querySelectorAll('[data-video]').forEach(link => {
     if (link.dataset.video === id) link.setAttribute('aria-current', 'true');
     else link.removeAttribute('aria-current');
@@ -117,7 +118,7 @@ fetch('data/cases.json').then(response => {
   note.textContent = 'Individual videos: ';
   for (let number = 1; number <= 6; number++) {
     const link = document.createElement('a');
-    link.href = `media/case-${String(number).padStart(2, '0')}.mp4`;
+    link.href = mediaURL(`media/case-${String(number).padStart(2, '0')}.mp4`);
     link.textContent = `Case ${number}`;
     note.append(link, document.createTextNode(number === 6 ? '.' : ' · '));
   }
