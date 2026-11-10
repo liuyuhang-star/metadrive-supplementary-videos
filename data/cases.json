@@ -1,0 +1,313 @@
+{
+  "schema_version": "1.0",
+  "methods": [
+    "SAC",
+    "SAC-Lag",
+    "CPO",
+    "Ours"
+  ],
+  "cases": [
+    {
+      "number": 1,
+      "id": "case-01",
+      "scene": "Roundabout",
+      "density": 0.3,
+      "map_seed": 1,
+      "traffic_seed": 167237224,
+      "training_seeds": {
+        "sac": 0,
+        "saclag": 0,
+        "cpo": 0,
+        "ours": 0
+      },
+      "same_training_seed": true,
+      "outcomes": {
+        "sac": "collision",
+        "saclag": "collision",
+        "cpo": "collision",
+        "ours": "success"
+      },
+      "terminal_times_s": {
+        "sac": 62.0,
+        "saclag": 25.0,
+        "cpo": 63.0,
+        "ours": 94.9
+      },
+      "initial_background_vehicles": 61,
+      "video": "media/case-01.mp4",
+      "poster": "media/case-01.webp",
+      "duration_s": 22.24,
+      "playback_speed": 5.0,
+      "checkpoint_training_transitions": 50000,
+      "same_initial_map_and_vehicle_geometry": true,
+      "ours_saved_action_reconstruction_checks_passed": true,
+      "original_verification": {
+        "sac": "OUTCOME_MATCH_WITH_NUMERICAL_DRIFT",
+        "saclag": "FAILURE_REPRODUCED_WITH_DIFFERENT_TERMINAL_CAUSE",
+        "cpo": "OUTCOME_MATCH_WITH_NUMERICAL_DRIFT",
+        "ours": "FAIL"
+      },
+      "original_numeric_verification": {
+        "original_verification_status_retained": "FAIL",
+        "all_rewards_match": false,
+        "all_completion_values_match": false,
+        "all_costs_match": true,
+        "maximum_absolute_reward_difference": 1.0,
+        "maximum_absolute_completion_difference": 0.003976122849526753,
+        "maximum_absolute_cost_difference": 0.0
+      }
+    },
+    {
+      "number": 2,
+      "id": "case-02",
+      "scene": "Roundabout",
+      "density": 0.3,
+      "map_seed": 2,
+      "traffic_seed": 835267314,
+      "training_seeds": {
+        "sac": 0,
+        "saclag": 0,
+        "cpo": 1,
+        "ours": 0
+      },
+      "same_training_seed": false,
+      "outcomes": {
+        "sac": "collision",
+        "saclag": "collision",
+        "cpo": "collision",
+        "ours": "success"
+      },
+      "terminal_times_s": {
+        "sac": 135.0,
+        "saclag": 42.0,
+        "cpo": 83.0,
+        "ours": 112.0
+      },
+      "initial_background_vehicles": 61,
+      "video": "media/case-02.mp4",
+      "poster": "media/case-02.webp",
+      "duration_s": 30.24,
+      "playback_speed": 5.0,
+      "checkpoint_training_transitions": 50000,
+      "same_initial_map_and_vehicle_geometry": true,
+      "ours_saved_action_reconstruction_checks_passed": true,
+      "original_verification": {
+        "sac": "OUTCOME_MATCH_WITH_NUMERICAL_DRIFT",
+        "saclag": "OUTCOME_MATCH_WITH_NUMERICAL_DRIFT",
+        "cpo": "OUTCOME_MATCH_WITH_NUMERICAL_DRIFT",
+        "ours": "FAIL"
+      },
+      "original_numeric_verification": {
+        "original_verification_status_retained": "FAIL",
+        "all_rewards_match": false,
+        "all_completion_values_match": false,
+        "all_costs_match": true,
+        "maximum_absolute_reward_difference": 1.1,
+        "maximum_absolute_completion_difference": 0.0018708178006215936,
+        "maximum_absolute_cost_difference": 0.0
+      }
+    },
+    {
+      "number": 3,
+      "id": "case-03",
+      "scene": "Roundabout",
+      "density": 0.3,
+      "map_seed": 2,
+      "traffic_seed": 1073682616,
+      "training_seeds": {
+        "sac": 0,
+        "saclag": 0,
+        "cpo": 0,
+        "ours": 0
+      },
+      "same_training_seed": true,
+      "outcomes": {
+        "sac": "collision",
+        "saclag": "collision",
+        "cpo": "collision",
+        "ours": "success"
+      },
+      "terminal_times_s": {
+        "sac": 61.0,
+        "saclag": 22.0,
+        "cpo": 85.0,
+        "ours": 112.5
+      },
+      "initial_background_vehicles": 64,
+      "video": "media/case-03.mp4",
+      "poster": "media/case-03.webp",
+      "duration_s": 25.76,
+      "playback_speed": 5.0,
+      "checkpoint_training_transitions": 50000,
+      "same_initial_map_and_vehicle_geometry": true,
+      "ours_saved_action_reconstruction_checks_passed": true,
+      "original_verification": {
+        "sac": "OUTCOME_MATCH_WITH_NUMERICAL_DRIFT",
+        "saclag": "OUTCOME_MATCH_WITH_NUMERICAL_DRIFT",
+        "cpo": "PASS",
+        "ours": "PASS"
+      },
+      "original_numeric_verification": {
+        "original_verification_status_retained": "PASS",
+        "all_rewards_match": true,
+        "all_completion_values_match": true,
+        "all_costs_match": true,
+        "maximum_absolute_reward_difference": 0.0,
+        "maximum_absolute_completion_difference": 0.0,
+        "maximum_absolute_cost_difference": 0.0
+      }
+    },
+    {
+      "number": 4,
+      "id": "case-04",
+      "scene": "Roundabout",
+      "density": 0.3,
+      "map_seed": 1,
+      "traffic_seed": 414023591,
+      "training_seeds": {
+        "sac": 2,
+        "saclag": 2,
+        "cpo": 2,
+        "ours": 2
+      },
+      "same_training_seed": true,
+      "outcomes": {
+        "sac": "collision",
+        "saclag": "collision",
+        "cpo": "collision",
+        "ours": "success"
+      },
+      "terminal_times_s": {
+        "sac": 49.0,
+        "saclag": 39.0,
+        "cpo": 40.0,
+        "ours": 105.7
+      },
+      "initial_background_vehicles": 60,
+      "video": "media/case-04.mp4",
+      "poster": "media/case-04.webp",
+      "duration_s": 24.4,
+      "playback_speed": 5.0,
+      "checkpoint_training_transitions": 50000,
+      "same_initial_map_and_vehicle_geometry": true,
+      "ours_saved_action_reconstruction_checks_passed": true,
+      "original_verification": {
+        "sac": "OUTCOME_MATCH_WITH_NUMERICAL_DRIFT",
+        "saclag": "OUTCOME_MATCH_WITH_NUMERICAL_DRIFT",
+        "cpo": "PASS",
+        "ours": "PASS"
+      },
+      "original_numeric_verification": {
+        "original_verification_status_retained": "PASS",
+        "all_rewards_match": true,
+        "all_completion_values_match": true,
+        "all_costs_match": true,
+        "maximum_absolute_reward_difference": 0.0,
+        "maximum_absolute_completion_difference": 4.9378510169617584e-09,
+        "maximum_absolute_cost_difference": 0.0
+      }
+    },
+    {
+      "number": 5,
+      "id": "case-05",
+      "scene": "Roundabout",
+      "density": 0.3,
+      "map_seed": 2,
+      "traffic_seed": 113439681,
+      "training_seeds": {
+        "sac": 2,
+        "saclag": 2,
+        "cpo": 2,
+        "ours": 2
+      },
+      "same_training_seed": true,
+      "outcomes": {
+        "sac": "collision",
+        "saclag": "collision",
+        "cpo": "collision",
+        "ours": "success"
+      },
+      "terminal_times_s": {
+        "sac": 72.0,
+        "saclag": 39.0,
+        "cpo": 39.0,
+        "ours": 124.8
+      },
+      "initial_background_vehicles": 66,
+      "video": "media/case-05.mp4",
+      "poster": "media/case-05.webp",
+      "duration_s": 28.2,
+      "playback_speed": 5.0,
+      "checkpoint_training_transitions": 50000,
+      "same_initial_map_and_vehicle_geometry": true,
+      "ours_saved_action_reconstruction_checks_passed": true,
+      "original_verification": {
+        "sac": "FAILURE_REPRODUCED_WITH_DIFFERENT_TERMINAL_CAUSE",
+        "saclag": "OUTCOME_MATCH_WITH_NUMERICAL_DRIFT",
+        "cpo": "OUTCOME_MATCH_WITH_NUMERICAL_DRIFT",
+        "ours": "FAIL"
+      },
+      "original_numeric_verification": {
+        "original_verification_status_retained": "FAIL",
+        "all_rewards_match": false,
+        "all_completion_values_match": false,
+        "all_costs_match": true,
+        "maximum_absolute_reward_difference": 1.1,
+        "maximum_absolute_completion_difference": 0.0045799399308873445,
+        "maximum_absolute_cost_difference": 0.0
+      }
+    },
+    {
+      "number": 6,
+      "id": "case-06",
+      "scene": "Intersection",
+      "density": 0.3,
+      "map_seed": 0,
+      "traffic_seed": 623333945,
+      "training_seeds": {
+        "sac": 0,
+        "saclag": 1,
+        "cpo": 2,
+        "ours": 0
+      },
+      "same_training_seed": false,
+      "outcomes": {
+        "sac": "out_of_road",
+        "saclag": "collision",
+        "cpo": "collision",
+        "ours": "success"
+      },
+      "terminal_times_s": {
+        "sac": 58.0,
+        "saclag": 34.0,
+        "cpo": 30.0,
+        "ours": 105.2
+      },
+      "initial_background_vehicles": 43,
+      "video": "media/case-06.mp4",
+      "poster": "media/case-06.webp",
+      "duration_s": 24.28,
+      "playback_speed": 5.0,
+      "checkpoint_training_transitions": 50000,
+      "same_initial_map_and_vehicle_geometry": true,
+      "ours_saved_action_reconstruction_checks_passed": true,
+      "original_verification": {
+        "sac": "FAILURE_REPRODUCED_WITH_DIFFERENT_TERMINAL_CAUSE",
+        "saclag": "OUTCOME_MATCH_WITH_NUMERICAL_DRIFT",
+        "cpo": "OUTCOME_MATCH_WITH_NUMERICAL_DRIFT",
+        "ours": "FAIL"
+      },
+      "original_numeric_verification": {
+        "original_verification_status_retained": "FAIL",
+        "all_rewards_match": false,
+        "all_completion_values_match": true,
+        "all_costs_match": true,
+        "maximum_absolute_reward_difference": 0.10000000000000009,
+        "maximum_absolute_completion_difference": 2.438919232128356e-07,
+        "maximum_absolute_cost_difference": 0.0
+      }
+    }
+  ],
+  "scope": "Selected qualitative examples, not an aggregate performance estimate.",
+  "notes": "See PUBLIC_NOTES.md for scenario matching, reconstruction checks, training seeds and rendering details."
+}

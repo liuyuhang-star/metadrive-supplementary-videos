@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Supplementary MetaDrive videos comparing SAC, SAC-Lag, CPO and Ours in six selected roundabout and intersection cases at traffic density 0.3.">
+  <meta name="theme-color" content="#163c3b">
+  <title>MetaDrive policy comparison · Supplementary videos</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#viewer">Skip to video</a>
+  <header class="topbar wrap">
+    <a class="wordmark" href="#overview"><span class="mark" aria-hidden="true">M</span> MetaDrive <span class="muted">/ Supplementary material</span></a>
+    <nav aria-label="Main navigation"><a href="#cases">Cases</a><a href="#protocol">Protocol</a><a href="data/cases.csv" download>Case data <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main>
+    <section class="intro wrap" aria-labelledby="page-title">
+      <p class="eyebrow">Qualitative policy comparison</p>
+      <h1 id="page-title">Navigating dense traffic.</h1>
+      <p class="lede">SAC, SAC-Lag, CPO and Ours in six selected MetaDrive scenarios, with matching initial road and traffic conditions.</p>
+      <div class="facts" aria-label="Video collection information"><span>Traffic density <strong>0.3</strong></span><span><strong>5</strong> roundabouts · <strong>1</strong> intersection</span><span><strong>5×</strong> playback</span></div>
+    </section>
+
+    <section class="viewer-section wrap" id="viewer" aria-labelledby="video-title">
+      <div class="viewer-top"><div><p class="eyebrow" id="video-kicker">Complete collection</p><h2 id="video-title">All six cases</h2></div><span class="length" id="video-duration">02:35</span></div>
+      <div class="screen">
+        <video id="player" controls playsinline preload="metadata" poster="media/overview.webp" aria-label="Four-method comparison video: all six cases">
+          <source src="media/overview.mp4" type="video/mp4">
+          Your browser cannot play this video. <a href="media/overview.mp4">Download the MP4</a>.
+        </video>
+      </div>
+      <div class="player-bottom"><p id="video-description" aria-live="polite">Each case begins with its scene name and number. Baselines stop at their recorded collision or road departure; Ours continues to arrival.</p><div class="player-actions"><a id="download-video" href="media/overview.mp4" download>Download MP4 <span aria-hidden="true">↓</span></a><button id="copy-link" type="button">Copy video link</button></div></div>
+      <p class="status" id="copy-status" role="status" aria-live="polite"></p>
+      <div class="comparison-key"><span><i class="failure-dot" aria-hidden="true"></i> Failure: recorded collision / road departure</span><span><i class="success-dot" aria-hidden="true"></i> Success: safe arrival</span><span>Layout: SAC · SAC-Lag / CPO · Ours</span></div>
+    </section>
+
+    <section class="case-section wrap" id="cases" aria-labelledby="case-heading">
+      <div class="section-heading"><div><p class="eyebrow">Explore individually</p><h2 id="case-heading">The selected cases</h2></div><a class="overview-link" href="#overview" data-video="overview" aria-current="true">Play full collection <span aria-hidden="true">↗</span></a></div>
+      <div class="case-grid" id="case-grid" aria-label="Select a scenario video"></div>
+      <noscript><p>Individual MP4 videos: <a href="media/case-01.mp4">Case 01</a>, <a href="media/case-02.mp4">Case 02</a>, <a href="media/case-03.mp4">Case 03</a>, <a href="media/case-04.mp4">Case 04</a>, <a href="media/case-05.mp4">Case 05</a>, <a href="media/case-06.mp4">Case 06</a>.</p></noscript>
+    </section>
+
+    <section class="protocol-section wrap" id="protocol" aria-labelledby="protocol-heading">
+      <div class="protocol-label"><p class="eyebrow">Reading the comparison</p><h2 id="protocol-heading">Conditions & provenance</h2><a href="data/cases.csv" download>Download case data (CSV) <span aria-hidden="true">↓</span></a></div>
+      <div class="protocol-copy">
+        <p>These are selected qualitative examples of Ours reaching the goal while all three baseline rollouts end in a collision or road departure. They do not estimate aggregate performance. All six cases use traffic density 0.3.</p>
+        <p>Within each case, the road geometry, map seed, traffic seed and complete initial vehicle geometry match across methods. Background traffic remains interactive and can respond differently to each policy. The number of vehicles in the camera view changes as traffic moves through the map.</p>
+        <p>Each panel follows its own ego vehicle using the same camera specification. The real terminal frame is held after a rollout ends. Failure and success labels appear at the respective terminal times; Ours includes its complete route to arrival. Playback is 5× simulation time.</p>
+        <details><summary>Replay and training-seed details</summary><div class="details-body">
+          <p>The visualizations use native MetaDrive/Panda3D road and vehicle assets, rendered from recorded vehicle states. Sparse state samples are interpolated for display only. Unrecorded visual properties, including material colors, wheel angles and vehicle pitch, use native defaults.</p>
+          <p>Fixed 50K models are used throughout. Cases 02 and 06 include different training seeds across methods; the map and traffic seeds still match. Per-method seeds, outcomes and terminal simulation times are included in the case data.</p>
+          <p>Ours passed the saved-action, physics-step, transition-event and safe-arrival checks for every displayed case. Cases 01, 02, 05 and 06 retain a failed strict numerical replay status because rewards or completion values drifted; cases 03 and 04 passed that numerical check. The videos therefore document verified qualitative outcomes, without claiming every logged scalar was reproduced exactly.</p>
+          <p><a href="data/cases.json" download>Machine-readable case data (JSON)</a> · <a href="data/PUBLIC_NOTES.md" download>Detailed provenance notes</a></p>
+        </div></details>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap"><p>MetaDrive policy comparison</p><p>Supplementary videos · Traffic density 0.3</p></footer>
+</body>
+</html>
